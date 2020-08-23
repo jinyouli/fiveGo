@@ -1,9 +1,8 @@
 import { GobangBoard } from "./GobangBoard";
 import { NONE, BLACK, WHITE } from "./GobangConstants";
 import { GobangAI } from "./GobangAI";
+import Alert2 = require('./Alert2');
 
-
-//import { G } from "../G";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -19,7 +18,6 @@ export class GobangScene extends cc.Component {
         this.board.init(this);
         this.ai = new GobangAI(this.board);
         this.startGame();
-
     }
 
     startGame() {
@@ -32,7 +30,7 @@ export class GobangScene extends cc.Component {
     overGame() {
         if(this.state === BLACK) {
             cc.log("黑棋胜");
-            Alert.show("黑棋胜");
+            Alert2.show("黑棋胜");
            
             this.state = NONE;
             // this.showMaskMessage("你赢了阿尔法二狗！",
@@ -40,7 +38,7 @@ export class GobangScene extends cc.Component {
         }else if(this.state === WHITE) {
             
             cc.log("白旗胜");
-            Alert.show("白棋胜");
+            Alert2.show("白棋胜");
             // this.showMaskMessage("你输给了阿尔法二狗！",
             // { label: "服了", cb: () => { }, target: this },
             // { label: "不服", cb: () => { }, target: this });

@@ -14,10 +14,14 @@ export class GobangScene extends cc.Component {
     private ai: GobangAI = null;
     private state = NONE;
 
+    @property({type:cc.AudioClip})
+    public audio: cc.AudioClip = null;
+
     start() {
         this.board.init(this);
         this.ai = new GobangAI(this.board);
         this.startGame();
+        cc.audioEngine.playEffect(this.audio, true);
     }
 
     startGame() {
